@@ -27,8 +27,7 @@ from django.contrib import admin
 from aliments import views
 
 urlpatterns = [
-    path('', views.index),
-    path('index/', views.index, name='index'),
+    path('', views.index,  name='index'),
     path('aliments/', include('aliments.urls')),
     path('content/', admin.site.urls),
 ]
