@@ -8,8 +8,8 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Products
 from .models import Foodsave
-from pbeurre.aliments import dbInsert
-from pbeurre.aliments import dbRequests
+from aliments import dbInsert
+from aliments import dbRequests
 from django.contrib.auth.models import User
 from django.db import transaction
 from .models import Category
