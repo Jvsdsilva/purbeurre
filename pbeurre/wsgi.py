@@ -16,4 +16,3 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pbeurre.settings')
 
 application = get_wsgi_application()
 
-application = WhiteNoise(application)
