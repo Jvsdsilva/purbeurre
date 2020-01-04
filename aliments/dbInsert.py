@@ -13,7 +13,7 @@ def insertCategory():
 
     category_list = request.Request_categories()
 
-    for i in category_list:
+    for i in category_list[:100]:
         idcat = i['id']
         name = i['nameCategory']
         cat = Category(nameCategory=name, idCategory=idcat)
@@ -33,7 +33,7 @@ def insertStore():
 
     store_list = request.Request_stores()
 
-    for i in store_list:
+    for i in store_list[:100]:
         idSto = i['id']
         name = i['nameStore']
         store = Store(nameStore=name, idStore=idSto)
@@ -52,7 +52,7 @@ def insertProducts():
 
     product_list = request.Request_products()
 
-    for i in product_list:
+    for i in product_list[:100]:
         nameAlim = i["nameAlim"]
         image = i["image"]
         url = i["url"]
