@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'aliments.apps.AlimentsConfig',
     'crispy_forms',
+    'coverage'
 ]
 
 MIDDLEWARE = [
@@ -150,7 +151,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
+        os.path.join(BASE_DIR, 'staticfiles'),
     )
 
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -2,6 +2,7 @@ from django.test import TestCase
 from aliments.models import Category
 from aliments.models import Store
 from aliments.models import Products
+from aliments.models import Foodsave
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RegistrationForm
@@ -58,6 +59,12 @@ class CategoryTest(TestCase):
         expected_object_name = f'{p.nameAlim}'
         self.assertEquals(expected_object_name, 'Gazpacho')
 
+    # views (uses reverse)
+    def test_get_absolute_url(self):
+        foodsave = Products.objects.get(id=40)
+        # This will also fail if the urlconf is not defined.
+        self.assertEquals(foodsave.get_absolute_url(), '/results_details/40')
+    
     """def test_post_list_view(self):
         p = self.create_Products()
         p.save()
@@ -66,13 +73,39 @@ class CategoryTest(TestCase):
         self.assertEquals(product.get_absolute_url(), '/results_details/1')"""
 
 
+# Create your models here.
+# Create tables database
+class CategoryCreateTest(TestCase):
+    
+    def create_category(self, idCategory="idcategory", 
+                        nameCategory="namecategory"):
+        return Category.objects.create(idCategory=idCategory,                                          nameCategory=nameCategory)
+
+    def test_category_creation(self):
+        w = self.create_category()
+        self.assertTrue(isinstance(w, Category))
+        self.assertEqual(w.__str__(), w.nameCategory)
+
+
+class StoreCreateTest(TestCase):
+    
+    def create_store(self, idStore="idstore", 
+                     nameStore="namecstore"):
+        return Store.objects.create(idStore=idStore,                                                nameStore=nameStore)
+
+    def test_store_creation(self):
+        w = self.create_store()
+        self.assertTrue(isinstance(w, Store))
+        self.assertEqual(w.__str__(), w.nameStore)
+
+
 class CommentFormTest(TestCase):
 
     def test_valid_data(self):
-        obj_user = RegistrationForm({"Joana Silva",
+        obj_user = RegistrationForm({"username",
                                      "joana@example.com",
                                      "password1",
                                      "password2"})
 
-        self.assertEqual(obj_user['username'], "Joana Silva")
+        self.assertEqual(obj_user['username'], "username")
         self.assertEqual(obj_user['email'], "joana@example.com")
