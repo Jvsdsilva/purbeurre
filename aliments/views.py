@@ -70,7 +70,7 @@ def signup(request):
     else:
         form = RegistrationForm()
 
-        return render(request, 'aliments/signup.html', {'form': form})
+    return render(request, 'aliments/signup.html', {'form': form})
 
 
 # request results
