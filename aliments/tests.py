@@ -9,7 +9,7 @@ from .forms import RegistrationForm
 from django.views.generic import TemplateView
 
 
-# models test
+# creations test
 class CategoryTest(TestCase):
 
     def create_Category(self, nameCategory='Cat1', idCategory='idCat1'):
@@ -56,7 +56,7 @@ class CategoryTest(TestCase):
         self.assertEqual(self.c.__str__(), self.c.nameCategory)
         self.insts = self.assertTrue(isinstance(self.s, Store))
         self.assertEqual(self.s.__str__(), self.s.nameStore)
-    
+
     def test_Category_creation(self):
         c = self.create_Category()
         s = self.create_Store()
@@ -78,7 +78,7 @@ class CategoryTest(TestCase):
     def test_get_absolute_url(self):
         p = self.create_Products(4)
         response = self.client.get(self.results_detail)
-        
+
         product_detail = Products.objects.get(id=4)
 
         self.assertEquals(response.status_code, 200)
@@ -121,7 +121,7 @@ class StoreCreateTest(TestCase):
         self.assertTrue(isinstance(w, Store))
         self.assertEqual(w.__str__(), w.nameStore)
 
-
+# form test
 class CommentFormTest(TestCase):
 
     def test_valid_data(self):
@@ -147,7 +147,7 @@ class HomeView(TemplateView):
         kwargs['environment'] = 'Production'
         return super().get_context_data(**kwargs)
 
-
+# views test
 class TestViews(TestCase):
 
     def setUp(self):
@@ -166,7 +166,7 @@ class TestViews(TestCase):
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'aliments/user.html')
-    
+
     def test_mentions_GET(self):
         response = self.client.get(self.mentions)
 

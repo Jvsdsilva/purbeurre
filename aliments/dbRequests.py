@@ -71,7 +71,7 @@ class DbRequests():
 
             return(list_products)
 
-    # teatement of strings
+    # treatement of strings
     def data_treatement(self, data):
         ingredients = []
         for each in data['products']:
