@@ -75,7 +75,6 @@ def signup(request):
 
 # request results
 def results(request):
-    # Variables inatialisation
     result_res = []
     search = request.POST.get('searchbtn')
     query_nav = ""
@@ -86,7 +85,7 @@ def results(request):
     if search == 'searchbtn' or query_nav != "":
         if search == 'searchbtn':
             query_index = request.POST['query_index']
-        
+
         if query_index != "" or query_nav != "":
             if query_index != "":
                 query = query_index
