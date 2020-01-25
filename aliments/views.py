@@ -76,12 +76,20 @@ def signup(request):
 # request results
 def results(request):
     result_res = []
-    search = request.POST.get('searchbtn')
-    query_nav = ""
-    query_nav = request.POST['query_nav']
     query_index = ""
     query = ""
+    query_nav = ""
 
+    if request.method == "POST":
+        search = request.POST.get('searchbtn')
+        if search is None:
+            query_nav = request.POST['query_nav']
+
+            if query_nav != "":
+                query_nav = query_nav
+            else:
+                query_nav = ""
+    
     if search == 'searchbtn' or query_nav != "":
         if search == 'searchbtn':
             query_index = request.POST['query_index']
