@@ -75,12 +75,18 @@ def signup(request):
 
 # request results
 def results(request):
+    # Variables inatialisation
     result_res = []
-    search = request.POST.get('searchbtn', None)
-    query_index = request.POST['query_index']
+    search = request.POST.get('searchbtn')
+    query_nav = ""
     query_nav = request.POST['query_nav']
+    query_index = ""
+    query = ""
 
-    if search == 'searchbtn':
+    if search == 'searchbtn' or query_nav != "":
+        if search == 'searchbtn':
+            query_index = request.POST['query_index']
+        
         if query_index != "" or query_nav != "":
             if query_index != "":
                 query = query_index
@@ -105,10 +111,9 @@ def results(request):
                 contexts['nutritionGrade'] = result.nutritionGrade
 
                 result_res.append(contexts)
-            # print(result_res)
-            return render(request, 'aliments/results.html',
-                        {'results': result_res})
 
+            return render(request, 'aliments/results.html',
+                         {'results': result_res})
 
 # redirect to page details for a specific product
 def results_details(request, pk):

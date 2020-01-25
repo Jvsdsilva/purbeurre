@@ -121,6 +121,7 @@ class StoreCreateTest(TestCase):
         self.assertTrue(isinstance(w, Store))
         self.assertEqual(w.__str__(), w.nameStore)
 
+
 # form test
 class CommentFormTest(TestCase):
 
@@ -146,6 +147,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         kwargs['environment'] = 'Production'
         return super().get_context_data(**kwargs)
+
 
 # views test
 class TestViews(TestCase):

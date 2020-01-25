@@ -588,6 +588,10 @@ input[type=text] {
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
 }
 
 #block_content #portofolio .container-fluid .portfolio-box .portfolio-box-caption .project-name {
@@ -596,4 +600,12 @@ input[type=text] {
 
 #block_content #portofolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+#score{
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  font-weight: bold;
 }
