@@ -20,6 +20,7 @@
                 <div class="col-lg-4 col-sm-6">
                     <a class="portfolio-box" href="{% url 'results_details' pk=result.id %}">
                         <img class="img-responsive" src= "{{result.image}} " alt="image">
+                        <p id= "score_results" >{{result.nutritionGrade}}</p>
                         <div class="portfolio-box-caption">
                             <div class="project-category text-white-50">
                                 {{result.nutritionGrade}}
